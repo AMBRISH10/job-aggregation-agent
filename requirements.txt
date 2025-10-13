@@ -1,0 +1,38 @@
+# Job Aggregation Agent - Python Dependencies
+# Install with: pip install -r requirements.txt
+#conda activate job-agg-agent
+# Core Libraries
+requests==2.31.0                # HTTP client for API calls
+pandas==2.0.3                   # Data manipulation and analysis
+
+# Web Scraping
+selenium==4.15.0                # Browser automation for WhatsApp/Telegram
+webdriver-manager==4.0.1        # Automatic WebDriver management
+
+# LLM Integration
+ollama==0.1.0                   # Ollama Python client (if available)
+
+# Dashboard & UI
+streamlit==1.28.0               # Web app framework for dashboard
+streamlit-autorefresh==0.0.1    # Auto-refresh component (optional)
+
+# Data Validation
+pydantic==2.0.3                 # Data validation using Python type hints
+
+# Database
+# SQLite3 comes built-in with Python
+
+# Scheduling (Optional - for automated runs)
+APScheduler==3.10.4             # Task scheduling library
+
+# Development & Testing
+pytest==7.4.0                   # Unit testing framework
+pytest-cov==4.1.0               # Code coverage for tests
+
+# Utilities
+python-dotenv==1.0.0            # Load environment variables from .env
+loguru==0.7.0                   # Advanced logging (optional but recommended)
+
+# Production Deployment (Optional)
+gunicorn==21.2.0                # WSGI HTTP Server
+uvicorn==0.23.0                 # ASGI server for async apps
