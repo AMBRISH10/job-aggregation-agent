@@ -1,0 +1,104 @@
+graph TB
+    subgraph "📥 DATA SOURCES"
+        WA["WhatsApp Channels"]
+        TG["Telegram Channels"]
+        RSS["RSS Feeds (Future)"]
+        EMAIL["Email (Future)"]
+    end
+    
+    subgraph "🔌 ADAPTER LAYER (Modular)"
+        WAA["WhatsAppAdapter"]
+        TGA["TelegramAdapter"]
+        RSSA["RSSAdapter"]
+        EMAILA["EmailAdapter"]
+        
+        WA --> WAA
+        TG --> TGA
+        RSS --> RSSA
+        EMAIL --> EMAILA
+    end
+    
+    subgraph "📝 RAW DATA EXTRACTION"
+        EXTRACT["Extract Text & Metadata"]
+        CLEAN["Filter & Validate"]
+        
+        WAA --> EXTRACT
+        TGA --> EXTRACT
+        RSSA --> EXTRACT
+        EMAILA --> EXTRACT
+        
+        EXTRACT --> CLEAN
+    end
+    
+    subgraph "🤖 LLM PROCESSING (Ollama)"
+        PARSER["OllamaJobParser"]
+        PROMPT["Structured Prompt"]
+        PARSE["JSON Extraction"]
+        
+        CLEAN --> PARSER
+        PARSER --> PROMPT
+        PROMPT --> PARSE
+    end
+    
+    subgraph "✨ DATA NORMALIZATION"
+        NORMALIZE["Convert to JobPost"]
+        VALIDATE["Validate Fields"]
+        
+        PARSE --> NORMALIZE
+        NORMALIZE --> VALIDATE
+    end
+    
+    subgraph "💾 STORAGE LAYER"
+        DEDUP["Deduplication Check"]
+        HASH["Generate Post ID Hash"]
+        DB["SQLite Database"]
+        
+        VALIDATE --> HASH
+        HASH --> DEDUP
+        DEDUP --> DB
+    end
+    
+    subgraph "📊 DELIVERY LAYER"
+        DASHBOARD["Streamlit Dashboard"]
+        EXPORT["CSV/JSON Export"]
+        NOTIFY["WhatsApp/Email (Future)"]
+        
+        DB --> DASHBOARD
+        DB --> EXPORT
+        DB --> NOTIFY
+    end
+    
+    subgraph "🎯 USER INTERFACE"
+        STATS["📈 Statistics Cards"]
+        CHARTS["📊 Charts & Graphs"]
+        JOBS["💼 Job Listings"]
+        FILTER["🔍 Filters & Search"]
+        
+        DASHBOARD --> STATS
+        DASHBOARD --> CHARTS
+        DASHBOARD --> JOBS
+        DASHBOARD --> FILTER
+    end
+    
+    style WA fill:#e1f5ff
+    style TG fill:#e1f5ff
+    style RSS fill:#f3e5f5
+    style EMAIL fill:#f3e5f5
+    
+    style WAA fill:#81d4fa
+    style TGA fill:#81d4fa
+    style RSSA fill:#ce93d8
+    style EMAILA fill:#ce93d8
+    
+    style PARSER fill:#fff9c4
+    style PROMPT fill:#fff9c4
+    style PARSE fill:#fff9c4
+    
+    style DB fill:#c8e6c9
+    style DEDUP fill:#c8e6c9
+    
+    style DASHBOARD fill:#ffccbc
+    style STATS fill:#ffccbc
+    style CHARTS fill:#ffccbc
+    style JOBS fill:#ffccbc
+    style FILTER fill:#ffccbc
