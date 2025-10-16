@@ -1,6 +1,6 @@
 # Job Aggregation Agent
 
-A modular job aggregation system that collects job listings from WhatsApp and Telegram channels, extracts relevant information using open-source large language models (via Ollama), and presents the results in a Streamlit dashboard.
+A modular job aggregation system that collects job listings from WhatsApp and Telegram channels, extracts relevant information using open-source large language models (via Ollama), and presents the results in a FLASK dashboard.
 
 ---
 
@@ -21,29 +21,32 @@ This project aims to build a scalable, AI-powered agent that:
 - **Modular Architecture** – Add or modify data sources with ease
 - **LLM-Based Parsing** – Uses Ollama for job info extraction
 - **Deduplication Logic** – Avoids repeated listings
-- **Streamlit Dashboard** – View, filter, and analyze job listings
+- **FLASK Dashboard** – View, filter, and analyze job listings
 - **SQLite Storage** – Lightweight and easy to manage
 - **Production-Ready** – Clean codebase, extendable design
 
 ---
 
-## Architecture
 
-The system is built with a plugin-based architecture:
+## 🏗️ System Architecture
 
+The system is built with a **plugin-based architecture**:
+
+```
 Data Sources (WhatsApp, Telegram)
-↓
+          ↓
 Source Adapters (custom fetchers)
-↓
-Unstructured Text
-↓
-Ollama LLM Parser → Structured Output
-↓
-Job Template (Standardized Dataclass)
-↓
+          ↓
+   Unstructured Text
+          ↓
+  Ollama LLM Parser → Structured Output
+          ↓
+ Job Template (Standardized Dataclass)
+          ↓
 SQLite DB (Storage & Deduplication)
-↓
-Streamlit Dashboard (UI & Analytics)
+          ↓
+FLASK Dashboard (UI & Analytics)
+```
 
 
 ---
@@ -55,7 +58,7 @@ Streamlit Dashboard (UI & Analytics)
 | Language         | Python 3.8+        |
 | Scraping         | Selenium WebDriver |
 | LLM Integration  | Ollama (Local LLMs)|
-| Dashboard        | Streamlit          |
+| Dashboard        | FLASK          |
 | Database         | SQLite             |
 | Data Handling    | Pandas             |
 
