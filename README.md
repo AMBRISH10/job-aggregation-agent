@@ -91,11 +91,16 @@ DATABASE_PATH = "jobs.db"
 CHROME_DRIVER_PATH = "/usr/local/bin/chromedriver"
 
 
-## Run the Application
+### Run the Application
+
+```bash
 python master.py
 python dashboard_server.py
+```
 
-Project Structure
+## 📁 Project Structure
+
+```
 job-aggregation-agent/
 ├── config.py
 ├── models.py
@@ -107,25 +112,27 @@ job-aggregation-agent/
 ├── templates/
 │   └── dashboard.html
 └── requirements.txt
+```
 
+## ✨ Dashboard Features
 
-**Dashboard Features**
+- **🔍 Smart Search & Filtering** - Filter by role, location, experience, and job type
+- **👀 Dual View Modes** - View aggregated data in card or table view
+- **📊 Visual Analytics** - Charts for job types and source distribution
+- **⚡ Real-time Statistics** - Live data with refresh capability
+- **🤝 Social Integration** - Share jobs via WhatsApp with direct application links
 
-Search and filter by role, location, experience, and job type
+## 🔧 Extending the System
 
-View aggregated data in card or table view
-
-Visual analytics on job types and source distribution
-
-Real-time stats and refresh
-
-Share jobs via WhatsApp with direct application links
-
-**Extending the System**
 You can easily add:
 
-New sources (e.g., email, RSS, API-based)
+- **New Sources** - Email, RSS feeds, APIs
+- **Alternative LLM Models** - Custom parsing logic
+- **Additional Output Channels** - Email, WhatsApp, Telegram bots
 
-New LLM models or parsing strategies
+## 🛠️ Tech Stack
 
-Output channels (e.g., email, WhatsApp, Telegram bots)
+- **Backend**: Python with custom job aggregation engine
+- **Frontend**: Modern HTML/CSS/JavaScript with Chart.js
+- **Database**: PostgreSQL integration
+- **APIs**: RESTful endpoints for data management
