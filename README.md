@@ -84,13 +84,19 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 ### Configure Ollama
+
 ollama serve
+
 ollama pull mistral  # or another supported model
 
 ### Edit config.py:
+
 OLLAMA_URL = "http://localhost:11434"
+
 OLLAMA_MODEL = "mistral"
+
 DATABASE_PATH = "jobs.db"
+
 CHROME_DRIVER_PATH = "/usr/local/bin/chromedriver"
 
 
